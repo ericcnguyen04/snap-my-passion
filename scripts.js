@@ -91,15 +91,16 @@ function showCards() {
 
     // ill commit first, then try to display price!
     // here i want to display the price of the racket on bullet point 1
-    const price = document.getElementsByClassName("card")[i].querySelector(".price");
+    const price = myRacketInventory[i].price;
+
 
     const nextCard = templateCard.cloneNode(true); // Copy the template card
-    editCardContent(nextCard, title, imageURL); // Edit title and image
+    editCardContent(nextCard, title, imageURL, price); // Edit title and image
     cardContainer.appendChild(nextCard); // Add new card to the container
   }
 }
 
-function editCardContent(card, newTitle, newImageURL) {
+function editCardContent(card, newTitle, newImageURL, newPrice) {
   card.style.display = "block";
 
   const cardHeader = card.querySelector("h2");
@@ -108,6 +109,11 @@ function editCardContent(card, newTitle, newImageURL) {
   const cardImage = card.querySelector("img");
   cardImage.src = newImageURL;
   cardImage.alt = newTitle + " Poster";
+
+  // this is how i display price on bullet point 1
+  const price = card.querySelector("li");
+  price.textContent = "Price: $" + newPrice;
+  
 
   // You can use console.log to help you debug!
   // View the output by right clicking on your website,
