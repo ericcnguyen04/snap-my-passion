@@ -39,19 +39,29 @@ let titles = [
 // Your final submission should have much more data than this, and
 // you should use more than just an array of strings to store it all.
 
-function BadmintonRacket(brand, model, price, imageURL) {
-  this.brand = brand;
-  this.model = model;
-  this.price = price;
-  this.imageURL = imageURL;
-}
+// function BadmintonRacket(brand, model, price, imageURL) {
+//   this.brand = brand;
+//   this.model = model;
+//   this.price = price;
+//   this.imageURL = imageURL;
+// }
 
-function BadmintonBirdies(brand, name, type, price, imageURL) {
-  this.brand = brand;
+// function BadmintonBirdies(brand, name, type, price, imageURL) {
+//   this.brand = brand;
+//   this.name = name;
+//   this.type = type;
+//   this.price = price;
+//   this.imageURL = imageURL;
+// }
+
+// === !! perhaps i can combine the two classes into one ^ !! ===
+function
+
+function BadmintonPlayer(name, age, skill, inventory) {
   this.name = name;
-  this.type = type;
-  this.price = price;
-  this.imageURL = imageURL;
+  this.age = age;
+  this.skill = skill;
+  this.inventory = inventory; // this is an array of rackets and birdies
 }
 
 // my personal racket inventory
