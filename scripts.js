@@ -67,8 +67,13 @@ const myWantedRacket = new BadmintonRacket(
   "Yonex", "Nanoflare 1000 Z", 285,
   "https://joybadminton.com/cdn/shop/files/Yonex_Nanoflare_1000_Z_Lightning_Yellow.png?v=1752277886");
 
+const birdiesOftenUsed = new BadmintonBirdies(
+  "LingMei", "90 Pro", "Feather", 36.99,
+  "https://joybadminton.com/cdn/shop/files/LingMei90proShuttlecock_21b32c9d-bce8-4525-9a0e-fcfd148448ce.png?v=1768003502");
+
 // this part is kinda exciting, I use an array to display my racket inventory on the webpage
-const myRacketInventory = [myFirstRacket, myFavoriteRacket, myWantedRacket];
+const myRacketInventory = [myFirstRacket, myFavoriteRacket, myWantedRacket, birdiesOftenUsed, birdiesOftenUsed, birdiesOftenUsed, birdiesOftenUsed, birdiesOftenUsed
+];
 
 // This function adds cards the page to display the data in the array
 function showCards() {
