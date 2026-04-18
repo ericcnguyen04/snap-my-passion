@@ -24,7 +24,7 @@
  */
 
 const FRESH_PRINCE_URL =
-  "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
+  "https://joybadminton.com/cdn/shop/files/HundredHyfonic1_Pink_Pre-Strung.png?v=1775261027&width=1946";
 const CURB_POSTER_URL =
   "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
 const EAST_LOS_HIGH_POSTER_URL =
@@ -39,25 +39,54 @@ let titles = [
 // Your final submission should have much more data than this, and
 // you should use more than just an array of strings to store it all.
 
+function BadmintonRacket(brand, model, price, imageURL) {
+  this.brand = brand;
+  this.model = model;
+  this.price = price;
+  this.imageURL = imageURL;
+}
+
+function BadmintonBirdies(brand, name, type, price, imageURL) {
+  this.brand = brand;
+  this.name = name;
+  this.type = type;
+  this.price = price;
+  this.imageURL = imageURL;
+}
+
+// my personal racket inventory
+const myFirstRacket = new BadmintonRacket( 
+  "Yonex", "ArcSaber 11 Pro", 285, 
+  "https://joybadminton.com/cdn/shop/files/Yonex-Arcsaber-11-Pro-Grayish-Pearl.png?v=1752274374");
+
+const myFavoriteRacket = new BadmintonRacket(
+  "Yonex", "Astrox 100 ZZ", 295,
+  "https://joybadminton.com/cdn/shop/files/Yonex_Astrox_100_ZZ_Kurenai.png?v=1752275038");
+
+const myWantedRacket = new BadmintonRacket(
+  "Yonex", "Nanoflare 1000 Z", 285,
+  "https://joybadminton.com/cdn/shop/files/Yonex_Nanoflare_1000_Z_Lightning_Yellow.png?v=1752277886");
+
+// this part is kinda exciting, I use an array to display my racket inventory on the webpage
+const myRacketInventory = [myFirstRacket, myFavoriteRacket, myWantedRacket];
+
 // This function adds cards the page to display the data in the array
 function showCards() {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
   const templateCard = document.querySelector(".card");
 
-  for (let i = 0; i < titles.length; i++) {
-    let title = titles[i];
+  for (let i = 0; i < myRacketInventory.length; i++) {
+    let title = myRacketInventory[i].brand + " " + myRacketInventory[i].model;
 
     // This part of the code doesn't scale very well! After you add your
     // own data, you'll need to do something totally different here.
-    let imageURL = "";
-    if (i == 0) {
-      imageURL = FRESH_PRINCE_URL;
-    } else if (i == 1) {
-      imageURL = CURB_POSTER_URL;
-    } else if (i == 2) {
-      imageURL = EAST_LOS_HIGH_POSTER_URL;
-    }
+    let imageURL = myRacketInventory[i].imageURL;
+
+
+    // ill commit first, then try to display price!
+    // here i want to display the price of the racket on bullet point 1
+    const price = document.getElementsByClassName("card")[i].querySelector(".price");
 
     const nextCard = templateCard.cloneNode(true); // Copy the template card
     editCardContent(nextCard, title, imageURL); // Edit title and image
