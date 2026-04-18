@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Badminton Catalog</title>
-    <meta name="description" content="A Catalog of Shows Set in Los Angeles" />
+    <meta name="description" content="A Catalog of badminton equipment" />
     <link rel="stylesheet" href="style.css" />
     <script type="text/javascript" src="scripts.js"></script>
   </head>
@@ -12,23 +12,33 @@
       <h1 class="title">Snap My Badminton</h1>
     </header>
 
-    <div class="filters">
-      <!-- lets work on filters "price, brands, difference between racket and shuttle" -->
-      this will be where you can filter the cards by different categories, but for now it just looks pretty (pretty is subjective)
-      <input type="number" placeholder="price min">
-      <input type="number" placeholder="price max">
+    <div class="toolbar">
+      <!-- Search bar -->
+      <input type="text" id="search" placeholder="Search by name or brand">
 
-      <input type="checkbox" id="racket-filter" name="category" value="racket"> Racket
-      <input type="checkbox" id="shuttle-filter" name="category" value="shuttle"> Shuttlecock
-      <input type="checkbox" id="shoe-filter" name="category" value="Shoe"> Shoe
-      
+      <!-- Item Filters -->
+      <div class="category-filters" id="cat-filters">
+        <button class="category-button active" data-cat="all">All</button>
+        <button class="category-button" data-cat="Racket">Rackets</button>
+        <button class="category-button" data-cat="Birdies">Birdies</button>
+        <button class="category-button" data-cat="Shoes">Shoes</button>
+        <button class="category-button" data-cat="Bag">Bag</button>
+        <button class="category-button" data-cat="Strings">Strings</button>
+      </div>
+
+      <!-- price ranges -->
+      <div class="price-inputs">
+        <input type="number" id="min" placeholder="$ min"> -
+        <input type="number" id="max" placeholder="$ max">
+      </div>
+
     </div>
 
     <div id="card-container"></div>
     <div class="card" style="display: none">
 
       <div class="card-content">
-        <h2>TV Show Title</h2>
+        <h2>Rackets</h2>
 
         <img src="" alt="TV Show Poster" />
 
