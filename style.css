@@ -20,7 +20,10 @@ body {
 
 #card-container {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: flex-start;
+  gap: 20px;
   margin: 20px;
 }
 

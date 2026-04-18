@@ -55,35 +55,79 @@ let titles = [
 // }
 
 // === !! perhaps i can combine the two classes into one ^ !! ===
-function
+function BadmintonItem(category, brand, name, price, imageURL) {
+  this.category = category;
+  this.brand = brand;
+  this.name = name;
+  this.price = price;
+  this.imageURL = imageURL;
+}
 
-function BadmintonPlayer(name, age, skill, inventory) {
+function BadmintonPlayer(name, age, skill, inventory, numOfBirdies) {
   this.name = name;
   this.age = age;
   this.skill = skill;
   this.inventory = inventory; // this is an array of rackets and birdies
+  this.numOfBirdies = numOfBirdies;
+
 }
 
 // my personal racket inventory
-const myFirstRacket = new BadmintonRacket( 
-  "Yonex", "ArcSaber 11 Pro", 285, 
-  "https://joybadminton.com/cdn/shop/files/Yonex-Arcsaber-11-Pro-Grayish-Pearl.png?v=1752274374");
+const myFirstRacket = new BadmintonItem(
+  "Racket",
+  "Yonex",
+  "ArcSaber 11 Pro",
+  285,
+  "https://joybadminton.com/cdn/shop/files/Yonex-Arcsaber-11-Pro-Grayish-Pearl.png?v=1752274374"
+);
 
-const myFavoriteRacket = new BadmintonRacket(
-  "Yonex", "Astrox 100 ZZ", 295,
-  "https://joybadminton.com/cdn/shop/files/Yonex_Astrox_100_ZZ_Kurenai.png?v=1752275038");
+const myFavoriteRacket = new BadmintonItem(
+  "Racket",
+  "Yonex",
+  "Astrox 100 ZZ",
+  295,
+  "https://joybadminton.com/cdn/shop/files/Yonex_Astrox_100_ZZ_Kurenai.png?v=1752275038"
+);
 
-const myWantedRacket = new BadmintonRacket(
-  "Yonex", "Nanoflare 1000 Z", 285,
-  "https://joybadminton.com/cdn/shop/files/Yonex_Nanoflare_1000_Z_Lightning_Yellow.png?v=1752277886");
+const myWantedRacket = new BadmintonItem(
+  "Racket",
+  "Yonex",
+  "Nanoflare 1000 Z",
+  285,
+  "https://joybadminton.com/cdn/shop/files/Yonex_Nanoflare_1000_Z_Lightning_Yellow.png?v=1752277886"
+);
 
-const birdiesOftenUsed = new BadmintonBirdies(
-  "LingMei", "90 Pro", "Feather", 36.99,
-  "https://joybadminton.com/cdn/shop/files/LingMei90proShuttlecock_21b32c9d-bce8-4525-9a0e-fcfd148448ce.png?v=1768003502");
+const birdiesOftenUsed = new BadmintonItem(
+  "Feather Birdie",
+  "LingMei",
+  "90 Pro",
+  36.99,
+  "https://joybadminton.com/cdn/shop/files/LingMei90proShuttlecock_21b32c9d-bce8-4525-9a0e-fcfd148448ce.png?v=1768003502"
+);
+
+const myFirstShoe = new BadmintonItem(
+  "Shoe",
+  "Yonex",
+  "Power Cushion 65 Z4",
+  135,
+  "https://joybadminton.com/cdn/shop/files/Yonex_Power_Cushion_65_Z4_Men_s_Shoe_White.png?v=1752713399"
+)
+
+const mySecondShoe = new BadmintonItem(
+  "Shoe",
+  "Yonex",
+  "Aerus Z2 Wide",
+  109,
+  "https://joybadminton.com/cdn/shop/files/YonexAerusZ2Wide_LightBlue_carzysale.png?v=1757095445"
+)
 
 // this part is kinda exciting, I use an array to display my racket inventory on the webpage
-const myRacketInventory = [myFirstRacket, myFavoriteRacket, myWantedRacket, birdiesOftenUsed
+const myRacketInventory = [myFirstRacket, myFavoriteRacket, myWantedRacket, birdiesOftenUsed, myFirstShoe, mySecondShoe
 ];
+
+// push and pop into array of what the user wants
+const myShoppingCart = [];
+
 
 // This function adds cards the page to display the data in the array
 function showCards() {
@@ -92,7 +136,7 @@ function showCards() {
   const templateCard = document.querySelector(".card");
 
   for (let i = 0; i < myRacketInventory.length; i++) {
-    let title = myRacketInventory[i].brand + " " + myRacketInventory[i].model;
+    let title = myRacketInventory[i].brand + " " + myRacketInventory[i].name;
 
     // This part of the code doesn't scale very well! After you add your
     // own data, you'll need to do something totally different here.
