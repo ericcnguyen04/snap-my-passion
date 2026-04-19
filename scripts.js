@@ -139,7 +139,8 @@ const myRacketInventory = [
 // push and pop into array of what the user wants
 const myShoppingCart = [];
 
-// THE UI LOGIC FILTERS!!!
+// !! ==== THE UI LOGIC FILTERS!!! ==== !!
+// buttons!
 const filterButtons = document.querySelectorAll(".category-button")
 console.log(filterButtons)
 let selectedCategory = "all";
@@ -147,9 +148,18 @@ let selectedCategory = "all";
 filterButtons.forEach(button => {
   button.addEventListener("click", function() {
     selectedCategory = this.dataset.cat;
-    console.log(selectedCategory);
+    // console.log(selectedCategory);
     showCards();
   })
+})
+
+// budget ranges!
+const minBudgetInput = document.getElementById("min");
+const maxBudgetInput = document.getElementById("max");
+const budgetFilter = document.getElementById("budget-filter");
+
+budgetFilter.addEventListener("click", function() {
+  console.log(minBudgetInput.value);
 })
 
 
