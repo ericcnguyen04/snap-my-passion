@@ -355,9 +355,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function quoteAlert() {
   console.log("Button Clicked!");
-  alert(
-    "I guess I can kiss heaven goodbye, because it got to be a sin to look this good!",
-  );
+  // heres where i got my images from
+  window.open("https://joybadminton.com/collections/all-badminton-rackets")
 }
 
 function removeLastCard() {
