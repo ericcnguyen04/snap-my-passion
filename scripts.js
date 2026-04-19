@@ -137,7 +137,7 @@ const searchFilter = document.getElementById("search-filter");
 const searchInput = document.getElementById("search")
 
 searchFilter.addEventListener("click", function() {
-  console.log('hyey')
+  console.log(searchInput.value)
 })
 
 
