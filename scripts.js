@@ -187,7 +187,7 @@ function showCards() {
   if (minBudgetInput != null ||  maxBudgetInput != null) {
     // console.log("LOOK")
     displayedItems = myRacketInventory.filter(item => {
-      return item.price > min && item.price < max
+      return item.price >= min
     })
   }
 
