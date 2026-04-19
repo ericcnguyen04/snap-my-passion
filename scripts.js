@@ -107,7 +107,9 @@ const myRacketInventory = [
 
 const players = [
   new BadmintonPlayer("aang", 22, "avatar", [], 55),
-  new BadmintonPlayer("toph", 22, "advanced", [myFavoriteRacket], 13)
+  new BadmintonPlayer("toph", 22, "advanced", [myFavoriteRacket], 13),
+  new BadmintonPlayer("zuko", 25, "advanced", [myWantedRacket], 18),
+  new BadmintonPlayer("sokka", 23, "beginner", [myFirstRacket], 14)
 ]
 
 // push and pop into array of what the user wants
@@ -185,7 +187,6 @@ function showCards() {
   }
 
   
-
   for (let i = 0; i < displayedItems.length; i++) {
     let title = displayedItems[i].brand + " " + displayedItems[i].name;
 
@@ -226,10 +227,22 @@ function editCardContent(card, newTitle, newImageURL, newPrice) {
   console.log("new card:", newTitle, "- html: ", card);
 }
 
-
+// SHOW THE PLAYERS!!!
+function showPlayers(){
+  const dropdown = document.getElementById("playerSelect");
+  for(let i = 0; i < players.length; i++){
+      const option = document.createElement("option");
+      option.value = players[i].name;
+      option.textContent = players[i].name;
+      dropdown.appendChild(option);
+  }
+}
 
 // This calls the addCards() function when the page is first loaded
-document.addEventListener("DOMContentLoaded", showCards);
+document.addEventListener("DOMContentLoaded", function() {
+  showCards();
+  showPlayers();
+});
 
 function quoteAlert() {
   console.log("Button Clicked!");
