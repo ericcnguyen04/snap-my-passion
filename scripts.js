@@ -216,20 +216,48 @@ function editCardContent(card, newTitle, newImageURL, newPrice) {
   cardImage.src = newImageURL;
   cardImage.alt = newTitle + " Poster";
 
-  // this is how i display price on bullet point 1
+  // BULLET 1!! ~~this is how i display price on bullet point 1
   const price = card.querySelector("li");
   price.textContent = "Price: $" + newPrice;
   
 
-  // show the players!!!
-  const dropdown = document.querySelector(".playerSelect");
+  // BULLET 2!! ~~show the players!!!
+  const dropdown = card.querySelector(".playerSelect");
   dropdown.innerHTML='<option value="">Select a player</option>';
+  
   for(let i = 0; i < players.length; i++){
       const option = document.createElement("option");
       option.value = players[i].name;
       option.textContent = players[i].name;
       dropdown.appendChild(option);
   }
+
+  // BULLET 3!! ~~
+    // add into inventory!
+  const addbutton = card.querySelector(".addItem");
+  addbutton.addEventListener("click", function(){
+    let selectedPlayerName = dropdown.value;
+
+    // base case
+    if (selectedPlayerName == "") {
+      alert("select player first");
+      return
+    }
+
+    // find player object, we now have the data of our player
+    let player = players.find(p => 
+      p.name === selectedPlayerName)
+
+    // also find the item!!!
+    let item = myRacketInventory.find(item =>
+      item.name === newTitle.split(" ").slice(1).join(" ")
+    );
+
+    // push item into inventory!!
+    player.inventory.push(item)
+
+    displayPlayers();
+  });
 
   // You can use console.log to help you debug!
   // View the output by right clicking on your website,
