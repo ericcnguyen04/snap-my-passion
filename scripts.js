@@ -23,37 +23,6 @@
  *
  */
 
-const FRESH_PRINCE_URL =
-  "https://joybadminton.com/cdn/shop/files/HundredHyfonic1_Pink_Pre-Strung.png?v=1775261027&width=1946";
-const CURB_POSTER_URL =
-  "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
-const EAST_LOS_HIGH_POSTER_URL =
-  "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
-
-// This is an array of strings (TV show titles)
-let titles = [
-  "Fresh Prince of Bel Air",
-  "Curb Your Enthusiasm",
-  "East Los High",
-];
-// Your final submission should have much more data than this, and
-// you should use more than just an array of strings to store it all.
-
-// function BadmintonRacket(brand, model, price, imageURL) {
-//   this.brand = brand;
-//   this.model = model;
-//   this.price = price;
-//   this.imageURL = imageURL;
-// }
-
-// function BadmintonBirdies(brand, name, type, price, imageURL) {
-//   this.brand = brand;
-//   this.name = name;
-//   this.type = type;
-//   this.price = price;
-//   this.imageURL = imageURL;
-// }
-
 // === !! perhaps i can combine the two classes into one ^ !! ===
 function BadmintonItem(category, brand, name, price, imageURL) {
   this.category = category;
