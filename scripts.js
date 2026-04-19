@@ -171,9 +171,10 @@ function showCards() {
   cardContainer.innerHTML = "";
   const templateCard = document.querySelector(".card");
 
+  let displayedItems = myRacketInventory;
+  
   // filter before loop
   // categories
-  let displayedItems = myRacketInventory;
   if (selectedCategory !== "all") {
     displayedItems = myRacketInventory.filter(item => {
       return item.category == selectedCategory;
@@ -181,8 +182,12 @@ function showCards() {
   }
 
   // budget
-  if (minBudgetInput != null) {
-    console.log("LOOK")
+  let min = minBudgetInput.value
+  if (minBudgetInput != null ||  maxBudgetInput) {
+    // console.log("LOOK")
+    displayedItems = myRacketInventory.filter(item => {
+      return item.price > min
+    })
   }
 
   for (let i = 0; i < displayedItems.length; i++) {
