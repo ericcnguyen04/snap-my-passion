@@ -183,10 +183,11 @@ function showCards() {
 
   // budget
   let min = minBudgetInput.value
-  if (minBudgetInput != null ||  maxBudgetInput) {
+  let max = maxBudgetInput.value
+  if (minBudgetInput != null ||  maxBudgetInput != null) {
     // console.log("LOOK")
     displayedItems = myRacketInventory.filter(item => {
-      return item.price > min
+      return item.price > min && item.price < max
     })
   }
 
