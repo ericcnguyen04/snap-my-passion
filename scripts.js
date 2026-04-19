@@ -176,20 +176,20 @@ function showCards() {
   // filter before loop
   // categories
   if (selectedCategory !== "all") {
-    displayedItems = myRacketInventory.filter(item => {
+    displayedItems = displayedItems.filter(item => {
       return item.category == selectedCategory;
     })
   }
 
-  // budget
-  let min = minBudgetInput.value
-  let max = maxBudgetInput.value
-  if (minBudgetInput != null ||  maxBudgetInput != null) {
-    // console.log("LOOK")
-    displayedItems = myRacketInventory.filter(item => {
-      return item.price >= min
-    })
-  }
+  // budget values
+  // super clever way to default value til user gives input using strict equality and boolean
+  let min = minBudgetInput.value === "" ? 0 : Number(minBudgetInput.value)
+  let max = maxBudgetInput.value === "" ? 99999 : Number(maxBudgetInput.vaue)
+
+  // budget filter - this is what i kinda meant to do!
+  displayItems = displayItems.filter(item => {
+    return item.price >= min && item.price <= max
+  })
 
   for (let i = 0; i < displayedItems.length; i++) {
     let title = displayedItems[i].brand + " " + displayedItems[i].name;
