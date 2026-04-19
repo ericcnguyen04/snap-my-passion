@@ -105,6 +105,11 @@ const myRacketInventory = [
 
 ];
 
+const players = [
+  new BadmintonPlayer("aang", 22, "avatar", [], 55),
+  new BadmintonPlayer("toph", 22, "advanced", [myFavoriteRacket], 13)
+]
+
 // push and pop into array of what the user wants
 const myShoppingCart = [];
 
@@ -138,8 +143,8 @@ const searchInput = document.getElementById("search")
 
 // no need for button! we need to listen for input
 searchInput.addEventListener("input", function() {
-  console.log(searchInput.value)
-  // showCards();
+  // console.log(searchInput.value)
+  showCards();
 })
 
 
@@ -220,6 +225,8 @@ function editCardContent(card, newTitle, newImageURL, newPrice) {
   // select "Inspect", then click on the "Console" tab
   console.log("new card:", newTitle, "- html: ", card);
 }
+
+
 
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);
