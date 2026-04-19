@@ -1,21 +1,24 @@
-html,
-body {
+csshtml, body {
   margin: 0;
   padding: 0;
+  background-color: #ecec6a;
+  font-family: "Helvetica", Arial, sans-serif;
 }
 
+/* ===== HEADER ===== */
 .main-header {
-  background-color: rgba(0, 0, 0, 0.3);
-  padding-bottom: 10px;
+  background-color: #f5db47;
+  padding: 2rem 1rem 1.5rem;
+  text-align: center;
 }
 
 .title {
-  text-align: center;
   margin: 0;
-  font-size: 8em;
+  font-size: 5em;
   font-family: "Helvetica";
   font-weight: normal;
-  color: white;
+  color: rgb(0, 0, 0);
+  letter-spacing: -2px;
 }
 
 /* toolbar */
@@ -25,8 +28,9 @@ body {
   align-items: center;
   gap: 10px;
   padding: 14px 20px;
-  background: white;
-  border-bottom: 1px solid #ddd;
+  background: #f5db47;
+  /* border-top: 1px solid #000000; */
+  border-bottom: 1px solid #000000;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -147,7 +151,7 @@ body {
 
 .card {
   width: 260px;
-  background: white;
+  background: rgb(255, 255, 255);
   border: 1px solid #e0e0e0;
   border-radius: 12px;
   overflow: hidden;
@@ -293,4 +297,29 @@ body {
 .player-inventory {
   flex: 2 !important;
   color: #333 !important;
+}
+
+/* footer */
+/* ===== FOOTER ===== */
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: #f6ed45;
+  padding: 14px;
+}
+
+.footer button {
+  height: 40px;
+  padding: 0 24px;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.15s;
+  margin: 0;
+}
+.footer button:hover {
+  background: rgba(255,255,255,0.1);
 }
