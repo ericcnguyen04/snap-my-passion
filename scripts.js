@@ -128,8 +128,16 @@ const maxBudgetInput = document.getElementById("max");
 const budgetFilter = document.getElementById("budget-filter");
 
 budgetFilter.addEventListener("click", function() {
-  console.log(minBudgetInput.value);
+  // console.log(minBudgetInput.value);
   showCards();
+})
+
+// search filter!
+const searchFilter = document.getElementById("search-filter");
+const searchInput = document.getElementById("search")
+
+searchFilter.addEventListener("click", function() {
+  console.log('hyey')
 })
 
 
@@ -143,14 +151,14 @@ function showCards() {
   let displayedItems = myRacketInventory;
   
   // filter before loop
-  // categories
+  // ============== categories
   if (selectedCategory !== "all") {
     displayedItems = displayedItems.filter(item => {
       return item.category == selectedCategory;
     })
   }
 
-  // budget values
+  // ============= budget 
   // super clever way to default value til user gives input using strict equality and boolean
   let min = minBudgetInput.value === "" ? 0 : Number(minBudgetInput.value)
   let max = maxBudgetInput.value === "" ? 99999 : Number(maxBudgetInput.vaue)
@@ -159,6 +167,9 @@ function showCards() {
   displayedItems = displayedItems.filter(item => {
     return item.price >= min && item.price <= max
   })
+
+  // ============= search
+
   
 
   for (let i = 0; i < displayedItems.length; i++) {
