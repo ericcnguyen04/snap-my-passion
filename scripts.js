@@ -133,11 +133,13 @@ budgetFilter.addEventListener("click", function() {
 })
 
 // search filter!
-const searchFilter = document.getElementById("search-filter");
+// const searchFilter = document.getElementById("search-filter");
 const searchInput = document.getElementById("search")
 
-searchFilter.addEventListener("click", function() {
+// no need for button! we need to listen for input
+searchInput.addEventListener("input", function() {
   console.log(searchInput.value)
+  // showCards();
 })
 
 
@@ -169,6 +171,13 @@ function showCards() {
   })
 
   // ============= search
+  let searchText = searchInput.value.toLowerCase().trim(); // simplify the test
+  if (searchText !== "") {
+    displayedItems = displayedItems.filter(item => {
+      let fullName = (item.brand + " " + item.name).toLowerCase(); // include name and brand
+      return fullName.includes(searchText)
+    })
+  }
 
   
 
