@@ -170,7 +170,7 @@ function showCards() {
   // ============= budget 
   // super clever way to default value til user gives input using strict equality and boolean
   let min = minBudgetInput.value === "" ? 0 : Number(minBudgetInput.value)
-  let max = maxBudgetInput.value === "" ? 99999 : Number(maxBudgetInput.vaue)
+  let max = maxBudgetInput.value === "" ? 99999 : Number(maxBudgetInput.value)
 
   // budget filter - this is what i kinda meant to do!
   displayedItems = displayedItems.filter(item => {
@@ -221,27 +221,94 @@ function editCardContent(card, newTitle, newImageURL, newPrice) {
   price.textContent = "Price: $" + newPrice;
   
 
-  // You can use console.log to help you debug!
-  // View the output by right clicking on your website,
-  // select "Inspect", then click on the "Console" tab
-  console.log("new card:", newTitle, "- html: ", card);
-}
-
-// SHOW THE PLAYERS!!!
-function showPlayers(){
-  const dropdown = document.getElementById("playerSelect");
+  // show the players!!!
+  const dropdown = document.querySelector(".playerSelect");
+  dropdown.innerHTML='<option value="">Select a player</option';
   for(let i = 0; i < players.length; i++){
       const option = document.createElement("option");
       option.value = players[i].name;
       option.textContent = players[i].name;
       dropdown.appendChild(option);
   }
+
+  // You can use console.log to help you debug!
+  // View the output by right clicking on your website,
+  // select "Inspect", then click on the "Console" tab
+  console.log("new card:", newTitle, "- html: ", card);
 }
+
+// SHOW THE PLAYERS!!! (this is the dropdown list)
+// function showPlayers(){
+//   const dropdown = document.querySelector(".playerSelect");
+
+//   dropdown.innerHTML = '<option value="">Select a player</option>';
+
+//   for(let i = 0; i < players.length; i++){
+//       const option = document.createElement("option");
+//       option.value = players[i].name;
+//       option.textContent = players[i].name;
+//       dropdown.appendChild(option);
+//   }
+// }
+
+// populate players after shop
+function displayPlayers() {
+  const playerContainer = document.getElementById("player-container");
+
+  playerContainer.innerHTML = "";
+    const templatePlayer = document.querySelector(".player-card");
+
+  for (let i = 0; i < players.length; i++) {
+      let name = players[i].name;
+      let age = players[i].age;
+      let skill = players[i].skill;
+      let birdies = players[i].numOfBirdies;
+
+      // inventory array -> text
+      let inventoryText =
+      players[i].inventory
+        .map(item =>
+          item.brand + " " + item.name
+        )
+        .join(", ");
+
+      if (inventoryText === "") {
+        inventoryText = "None";
+      }
+
+      const nextPlayer =
+      templatePlayer.cloneNode(true);
+
+      editPlayerContent(
+         nextPlayer, name, age, skill, birdies, inventoryText
+      );
+
+      playerContainer.appendChild(
+        nextPlayer
+      );
+
+  }
+}
+
+// ADDING TO INVENTORY
+const addToInventory = document.getElementById("addItem")
+
+// addButton.addEventListener("click", function() {
+//   let selectedPlayerName = playerSelect.value;
+//   let selectedItemName = itemSelect.value;
+//   let player = playe
+// })
+
+
+
+
+
 
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", function() {
   showCards();
   showPlayers();
+  displayPlayers();
 });
 
 function quoteAlert() {

@@ -71,3 +71,49 @@ button {
   cursor: pointer;
   margin: 5px;
 }
+
+
+/* player select */
+.players-section {
+  margin: 30px 20px;
+}
+
+.players-title {
+  font-family: "Helvetica";
+  font-size: 2.2em;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+#player-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.player-card {
+  width: 280px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  background-color: white;
+}
+
+.player-content {
+  padding: 18px;
+  font-family: "Verdana";
+  color: #444;
+}
+
+.player-name {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 22px;
+  color: #111;
+}
+
+.player-content p {
+  margin: 8px 0;
+  font-size: 15px;
+  line-height: 1.4;
+}
