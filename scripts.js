@@ -98,7 +98,7 @@ const myWantedRacket = new BadmintonItem(
 );
 
 const birdiesOftenUsed = new BadmintonItem(
-  "Feather Birdie",
+  "Birdies",
   "LingMei",
   "90 Pro",
   36.99,
@@ -106,7 +106,7 @@ const birdiesOftenUsed = new BadmintonItem(
 );
 
 const myFirstShoe = new BadmintonItem(
-  "Shoe",
+  "Shoes",
   "Yonex",
   "Power Cushion 65 Z4",
   135,
@@ -114,7 +114,7 @@ const myFirstShoe = new BadmintonItem(
 )
 
 const mySecondShoe = new BadmintonItem(
-  "Shoe",
+  "Shoes",
   "Yonex",
   "Aerus Z2 Wide",
   109,
@@ -122,30 +122,63 @@ const mySecondShoe = new BadmintonItem(
 )
 
 // this part is kinda exciting, I use an array to display my racket inventory on the webpage
-const myRacketInventory = [myFirstRacket, myFavoriteRacket, myWantedRacket, birdiesOftenUsed, myFirstShoe, mySecondShoe
+const myRacketInventory = [
+  myFirstRacket, 
+  myFavoriteRacket, 
+  myWantedRacket, 
+  birdiesOftenUsed, 
+  myFirstShoe, 
+  mySecondShoe,
+  new BadmintonItem("Bag", "Yonex", "42123 Red", 52, "https://joybadminton.com/cdn/shop/files/Yonex-42123-_Red_-3pk-Team-Badminton-Tennis-Racket-Bag_-43430334.jpg?v=1719011639"),
+  new BadmintonItem("Bag", "Victor", "BR6617-M White", 60, "https://joybadminton.com/cdn/shop/files/Victor-Bag-BR6617-M-_White_-192383781.png?v=1722456944"),
+  new BadmintonItem("Strings", "Yonex", "BG65 Titanium", 12, "https://joybadminton.com/cdn/shop/files/YonexBG65Ti10mBadmintonString_5Colors.png?v=1728432586"),
+  new BadmintonItem("Strings", "Yonex", "BG80 Power", 14, "https://joybadminton.com/cdn/shop/files/YonexBG80Power10mBadmintonString_2Colors.png?v=1728432702")
+
 ];
 
 // push and pop into array of what the user wants
 const myShoppingCart = [];
 
+// THE UI LOGIC FILTERS!!!
+const filterButtons = document.querySelectorAll(".category-button")
+console.log(filterButtons)
+let selectedCategory = "all";
 
+filterButtons.forEach(button => {
+  button.addEventListener("click", function() {
+    selectedCategory = this.dataset.cat;
+    console.log(selectedCategory);
+    showCards();
+  })
+})
+
+
+// leave alone!!!!!!!! for now
 // This function adds cards the page to display the data in the array
 function showCards() {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
   const templateCard = document.querySelector(".card");
 
-  for (let i = 0; i < myRacketInventory.length; i++) {
-    let title = myRacketInventory[i].brand + " " + myRacketInventory[i].name;
+  // filter before loop
+  let displayedItems = myRacketInventory;
+  if (selectedCategory !== "all") {
+    displayedItems = myRacketInventory.filter(item => {
+      return item.category == selectedCategory;
+    })
+  }
+
+  for (let i = 0; i < displayedItems.length; i++) {
+    let title = displayedItems[i].brand + " " + displayedItems[i].name;
 
     // This part of the code doesn't scale very well! After you add your
     // own data, you'll need to do something totally different here.
-    let imageURL = myRacketInventory[i].imageURL;
+    let imageURL = displayedItems[i].imageURL;
 
 
     // ill commit first, then try to display price!
     // here i want to display the price of the racket on bullet point 1
-    const price = myRacketInventory[i].price;
+    const price = displayedItems[i].price;
 
 
     const nextCard = templateCard.cloneNode(true); // Copy the template card
