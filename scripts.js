@@ -160,6 +160,7 @@ const budgetFilter = document.getElementById("budget-filter");
 
 budgetFilter.addEventListener("click", function() {
   console.log(minBudgetInput.value);
+  showCards();
 })
 
 
@@ -171,11 +172,17 @@ function showCards() {
   const templateCard = document.querySelector(".card");
 
   // filter before loop
+  // categories
   let displayedItems = myRacketInventory;
   if (selectedCategory !== "all") {
     displayedItems = myRacketInventory.filter(item => {
       return item.category == selectedCategory;
     })
+  }
+
+  // budget
+  if (minBudgetInput != null) {
+    console.log("LOOK")
   }
 
   for (let i = 0; i < displayedItems.length; i++) {
