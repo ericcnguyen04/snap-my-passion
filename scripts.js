@@ -187,9 +187,10 @@ function showCards() {
   let max = maxBudgetInput.value === "" ? 99999 : Number(maxBudgetInput.vaue)
 
   // budget filter - this is what i kinda meant to do!
-  displayItems = displayItems.filter(item => {
+  displayedItems = displayedItems.filter(item => {
     return item.price >= min && item.price <= max
   })
+  
 
   for (let i = 0; i < displayedItems.length; i++) {
     let title = displayedItems[i].brand + " " + displayedItems[i].name;
