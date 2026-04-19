@@ -149,6 +149,12 @@ searchInput.addEventListener("input", function() {
   showCards();
 })
 
+// sorts!
+const sortSelect = document.getElementById("sortSelect");
+sortSelect.addEventListener("change", function(){
+  showCards();
+});
+
 
 // leave alone!!!!!!!! for now
 // This function adds cards the page to display the data in the array
@@ -186,6 +192,20 @@ function showCards() {
     })
   }
 
+  // ============= sort
+  let sortValue = sortSelect.value;
+  if (sortValue === "low-high") {
+    displayedItems.sort((a, b) =>
+    a.price - b.price)
+  }
+  if (sortValue === "high-low") {
+    displayedItems.sort((a,b) => 
+    b.price - a.price)
+  }
+  if(sortValue === "az"){
+   displayedItems.sort((a,b) =>
+    a.name.localeCompare(b.name)
+  )}
   
   for (let i = 0; i < displayedItems.length; i++) {
     let title = displayedItems[i].brand + " " + displayedItems[i].name;
@@ -224,7 +244,7 @@ function editCardContent(card, newTitle, newImageURL, newPrice) {
   // BULLET 2!! ~~show the players!!!
   const dropdown = card.querySelector(".playerSelect");
   dropdown.innerHTML='<option value="">Select a player</option>';
-  
+
   for(let i = 0; i < players.length; i++){
       const option = document.createElement("option");
       option.value = players[i].name;
