@@ -237,20 +237,6 @@ function editCardContent(card, newTitle, newImageURL, newPrice) {
   console.log("new card:", newTitle, "- html: ", card);
 }
 
-// SHOW THE PLAYERS!!! (this is the dropdown list)
-// function showPlayers(){
-//   const dropdown = document.querySelector(".playerSelect");
-
-//   dropdown.innerHTML = '<option value="">Select a player</option>';
-
-//   for(let i = 0; i < players.length; i++){
-//       const option = document.createElement("option");
-//       option.value = players[i].name;
-//       option.textContent = players[i].name;
-//       dropdown.appendChild(option);
-//   }
-// }
-
 // populate players after shop
 function displayPlayers() {
   const playerContainer = document.getElementById("player-container");
