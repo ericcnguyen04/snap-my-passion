@@ -223,7 +223,7 @@ function editCardContent(card, newTitle, newImageURL, newPrice) {
 
   // show the players!!!
   const dropdown = document.querySelector(".playerSelect");
-  dropdown.innerHTML='<option value="">Select a player</option';
+  dropdown.innerHTML='<option value="">Select a player</option>';
   for(let i = 0; i < players.length; i++){
       const option = document.createElement("option");
       option.value = players[i].name;
@@ -240,9 +240,9 @@ function editCardContent(card, newTitle, newImageURL, newPrice) {
 // populate players after shop
 function displayPlayers() {
   const playerContainer = document.getElementById("player-container");
+  const templatePlayer = document.querySelector(".player-card");
 
   playerContainer.innerHTML = "";
-    const templatePlayer = document.querySelector(".player-card");
 
   for (let i = 0; i < players.length; i++) {
       let name = players[i].name;
@@ -276,6 +276,15 @@ function displayPlayers() {
   }
 }
 
+function editPlayerContent(card, name, age, skill, birdies, inventory) {
+   card.style.display = "block";
+   card.querySelector(".player-name").textContent = name;
+   card.querySelector(".player-age").textContent = "Age: " + age;
+   card.querySelector(".player-skill").textContent = "Skill: " + skill;
+   card.querySelector(".player-birdies").textContent = "Birdies: " + birdies;
+   card.querySelector(".player-inventory").textContent = "Inventory: " + inventory;
+}
+
 // ADDING TO INVENTORY
 const addToInventory = document.getElementById("addItem")
 
@@ -293,7 +302,6 @@ const addToInventory = document.getElementById("addItem")
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", function() {
   showCards();
-  showPlayers();
   displayPlayers();
 });
 
